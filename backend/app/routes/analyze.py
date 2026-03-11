@@ -10,11 +10,11 @@ async def analyze_lift(request: AnalyzeLiftRequest):
 
     result = analyze_lift_data(request)
     issues = [LiftIssue(**issue) for issue in result["issues"]]
-    
+
     return AnalyzeLiftResponse(
         exercise_type=request.exercise_type,
         rep_count=result["rep_count"],
         score=result["score"],
-        feedback=feedback,
+        feedback=result["feedback"],
         issues=issues
     )
