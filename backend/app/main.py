@@ -1,17 +1,19 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from app.core.config import settings
 from app.routes.health import router as health_router
 from app.routes.analyze import router as analyze_router
 
 app = FastAPI(
-    title = "CoachMe API",
-    version = "0.1.0",
+    title = settings.app_name,
+    version = settings.app_version,
     description = "Backend API for CoachMe AI"
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
