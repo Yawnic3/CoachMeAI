@@ -6,6 +6,6 @@ class Settings(BaseSettings):
     bebug: bool = True
 
     class Config:
-        env_file = ".env"
+        env_file = "development"
 
 settings = Settings()

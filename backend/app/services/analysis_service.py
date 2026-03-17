@@ -13,7 +13,7 @@ def analyze_lift_data(request: AnalyzeLiftRequest) -> dict:
 
     return {
         "exercise_type": request.exercise_type,
-        "rep_count": scoring_result,
+        "rep_count": scoring_result["rep_count"],
         "score": scoring_result["score"],
         "feedback": feedback,
         "issues": scoring_result["issues"]
